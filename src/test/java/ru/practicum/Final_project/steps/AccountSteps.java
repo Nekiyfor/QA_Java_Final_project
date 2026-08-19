@@ -21,7 +21,6 @@ public class AccountSteps {
     private final HomePage homePage;
     private final PopupPage popupPage;
     private String email;
-    private LoginResult loginResult;
     private String password;
 
     public AccountSteps(
@@ -73,7 +72,7 @@ public class AccountSteps {
         user.avatar = response.jsonPath().get("user.avatar");
         user.admin = response.jsonPath().getBoolean("user.admin");
 
-        loginResult = new LoginResult(accessToken, user);
+        LoginResult loginResult = new LoginResult(accessToken, user);
 
         // Открываем браузер и вставляем токен в localStorage
         Selenide.open(BrowserHooks.BASE_URL);

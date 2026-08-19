@@ -56,6 +56,10 @@ public class AdvertisingSteps {
         open(BrowserHooks.BASE_URL + "/profile");
         profilePage.clickAdCard();
     }
+    @When("Нажимаем кнопку \"Сохранить изменения\"")
+    public void SaveChangesButtonClick() {
+        adPage.clickSaveChangesButton();
+    }
 
     @When("Нажимаем кнопку удаления объявления")
     public void clickDeleteAdButton() {
