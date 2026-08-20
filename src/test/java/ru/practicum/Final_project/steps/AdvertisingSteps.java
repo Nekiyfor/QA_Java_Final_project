@@ -56,8 +56,9 @@ public class AdvertisingSteps {
         open(BrowserHooks.BASE_URL + "/profile");
         profilePage.clickAdCard();
     }
+
     @When("Нажимаем кнопку \"Сохранить изменения\"")
-    public void SaveChangesButtonClick() {
+    public void saveChangesButtonClick() {
         adPage.clickSaveChangesButton();
     }
 
@@ -69,5 +70,15 @@ public class AdvertisingSteps {
     @Then("Отображается \"Главная страница\"")
     public void verifyHomePageIsDisplayed() {
         homePage.homePageIsDisplayed();
+    }
+
+    @Then("Отображается объявление с заголовком {string}")
+    public void adWithTitleIsDisplayed(String expectedTitle) {
+        homePage.verifyAdIsVisible(expectedTitle);
+    }
+
+    @Then("Объявление с заголовком {string} не отображается")
+    public void adWithTitleIsNotDisplayed(String expectedTitle) {
+        homePage.verifyAdIsNotVisible(expectedTitle);
     }
 }
